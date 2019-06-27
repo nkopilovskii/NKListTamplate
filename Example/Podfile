@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'NKListTamplate_Example' do
+  pod 'NKListTamplate', :path => '../'
+
+  target 'NKListTamplate_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

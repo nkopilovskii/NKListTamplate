@@ -1,0 +1,16 @@
+PODS:
+  - NKListTamplate (0.1.0)
+
+DEPENDENCIES:
+  - NKListTamplate (from `../`)
+
+EXTERNAL SOURCES:
+  NKListTamplate:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NKListTamplate: e7b70e6542198edf03f170db464619b63a8cbdd1
+
+PODFILE CHECKSUM: 1b1bc8efb8d4b929503b6b60181f82ba24477a5d
+
+COCOAPODS: 1.5.3
