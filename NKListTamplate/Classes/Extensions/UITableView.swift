@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
   
   func dequeueReusableCell(with model: AnyViewModel, for indexPath: IndexPath) -> UITableViewCell {
     let identifier = String(describing: type(of: model).viewAnyType)

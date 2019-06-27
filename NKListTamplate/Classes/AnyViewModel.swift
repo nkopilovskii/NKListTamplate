@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol AnyViewModel {
+public protocol AnyViewModel {
   static var viewAnyType: UIView.Type { get }
   func setupAny(view: UIView)
   func estimatedSize(in frame: CGRect) -> CGSize
 }
 
-protocol ViewModel: AnyViewModel {
+public protocol ViewModel: AnyViewModel {
   associatedtype ViewType: UIView
   func setup(view: ViewType)
 }
 
-extension ViewModel {
+public extension ViewModel {
   static var viewAnyType: UIView.Type {
     return ViewType.self
   }

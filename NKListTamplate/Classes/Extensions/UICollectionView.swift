@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UICollectionView {
+public extension UICollectionView {
   
   func dequeueReusableCell(with model: AnyViewModel, for indexPath: IndexPath) -> UICollectionViewCell {
     let identifier = String(describing: type(of: model).viewAnyType)

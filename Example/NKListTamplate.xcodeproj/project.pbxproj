@@ -31,7 +31,7 @@
 		27509E07EACAAFCEB6DD8979 /* Pods-NKListTamplate_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKListTamplate_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NKListTamplate_Tests/Pods-NKListTamplate_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2F477AF4C1F032E75EFDBB49 /* Pods_NKListTamplate_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NKListTamplate_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A985285268200449438E3A /* Pods-NKListTamplate_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKListTamplate_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NKListTamplate_Example/Pods-NKListTamplate_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4FB5DBBE3B42CA6954A9C051 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		4FB5DBBE3B42CA6954A9C051 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		53D3C3A499947DDD7A5B5D21 /* Pods-NKListTamplate_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKListTamplate_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NKListTamplate_Example/Pods-NKListTamplate_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* NKListTamplate_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NKListTamplate_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,9 +43,9 @@
 		607FACE51AFB9204008FA782 /* NKListTamplate_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NKListTamplate_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6F37EC3795F6ED4818727066 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		6F37EC3795F6ED4818727066 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9A5F795074DAE258075C461E /* Pods-NKListTamplate_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKListTamplate_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NKListTamplate_Tests/Pods-NKListTamplate_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C37102939EEB4764A74A6FAC /* NKListTamplate.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = NKListTamplate.podspec; path = ../NKListTamplate.podspec; sourceTree = "<group>"; };
+		C37102939EEB4764A74A6FAC /* NKListTamplate.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NKListTamplate.podspec; path = ../NKListTamplate.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FCC988984D37C77E1EDE317B /* Pods_NKListTamplate_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NKListTamplate_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -226,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
