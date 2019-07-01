@@ -1,5 +1,5 @@
 import XCTest
-import NKListTamplate
+//import NKListTamplate
 
 class Tests: XCTestCase {
     
