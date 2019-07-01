@@ -7,9 +7,9 @@
 
 import Foundation
 
-public protocol NKTableViewConfigurator {
+public protocol NKListConfigurator {
   
-  var viewer: NKTableViewable? { get }
+  var viewer: NKListViewable? { get }
   
   var isRefreshable: Bool { get }
   var refreshTitle: String? { get }
@@ -27,5 +27,5 @@ public protocol NKTableViewConfigurator {
   
   func didSelectItem(at indexPath: Int)
   
-  func didRefresh()
+  func didMakeRefresh()
 }
