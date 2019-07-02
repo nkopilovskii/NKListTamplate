@@ -14,16 +14,16 @@ public protocol NKListConfigurator {
   var isRefreshable: Bool { get }
   var refreshTitle: String? { get }
   
-  var cellViewModelTypes: [AnyViewModel.Type] { get }
-  var headerViewModelTypes: [AnyViewModel.Type]? { get }
-  var footerViewModelTypes: [AnyViewModel.Type]? { get }
+  var cellViewModelTypes: [NKAnyViewModel.Type] { get }
+  var headerViewModelTypes: [NKAnyViewModel.Type]? { get }
+  var footerViewModelTypes: [NKAnyViewModel.Type]? { get }
   
   var numberOfSections: Int { get }
   
   func numberOfRows(in section: Int) -> Int
-  func cellViewModel(for indexPath: IndexPath) -> AnyViewModel?
-  func headerViewModel(for section: Int) -> AnyViewModel?
-  func footerViewModel(for section: Int) -> AnyViewModel?
+  func cellViewModel(for indexPath: IndexPath) -> NKAnyViewModel?
+  func headerViewModel(for section: Int) -> NKAnyViewModel?
+  func footerViewModel(for section: Int) -> NKAnyViewModel?
   
   func didSelectItem(at indexPath: Int)
   

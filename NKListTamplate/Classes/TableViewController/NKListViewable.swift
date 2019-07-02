@@ -80,9 +80,7 @@ public extension NKListViewable {
     }
   }
   
-  fileprivate func refresh() {
-    tableViewConfigurator?.didMakeRefresh()
-  }
+  
   
 }
 //MARK: -
@@ -117,6 +115,9 @@ open class NKViewController: UIViewController, UITableViewDataSource, UITableVie
     return tableView.dequeueReusableView(with: viewModel)
   }
   
+  private func refresh() {
+    tableViewConfigurator?.didMakeRefresh()
+  }
 }
 //MARK: -
 

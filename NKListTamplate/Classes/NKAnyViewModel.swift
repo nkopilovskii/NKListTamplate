@@ -11,15 +11,14 @@ import UIKit
 public protocol NKAnyViewModel {
   static var viewAnyType: UIView.Type { get }
   func setupAny(view: UIView)
-  func estimatedSize(in frame: CGRect) -> CGSize
 }
 
-public protocol ViewModel: NKAnyViewModel {
+public protocol NKViewModel: NKAnyViewModel {
   associatedtype ViewType: UIView
   func setup(view: ViewType)
 }
 
-public extension ViewModel {
+public extension NKViewModel {
   static var viewAnyType: UIView.Type {
     return ViewType.self
   }
