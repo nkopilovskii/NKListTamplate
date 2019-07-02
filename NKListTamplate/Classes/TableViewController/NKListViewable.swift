@@ -11,9 +11,9 @@ import UIKit
 public protocol NKListViewable: class {
   
   var tableViewConfigurator: NKListConfigurator? { get }
-  var tableView: UITableView? { get }
+  var contentTableView: UITableView? { get }
   
-  func configurateViewModels()
+  func configurateTableView()
   
   func reloadTableView()
   func reloadSections(_ sections: [Int], with animation: UITableView.RowAnimation)
@@ -29,44 +29,44 @@ public protocol NKListViewable: class {
 //MARK: - NKListViewable base implementation
 public extension NKListViewable {
   
-  func configurateViewModels() {
+  func configurateTableView() {
     guard let tableViewConfigurator = tableViewConfigurator else { return }
-    tableView?.registerCell(nibModels: tableViewConfigurator.cellViewModelTypes)
-    tableView?.registerView(nibModels: tableViewConfigurator.headerViewModelTypes ?? [])
-    tableView?.registerView(nibModels: tableViewConfigurator.footerViewModelTypes ?? [])
+    contentTableView?.registerCell(nibModels: tableViewConfigurator.cellViewModelTypes)
+    contentTableView?.registerView(nibModels: tableViewConfigurator.headerViewModelTypes ?? [])
+    contentTableView?.registerView(nibModels: tableViewConfigurator.footerViewModelTypes ?? [])
     
     if tableViewConfigurator.isRefreshable {
-      tableView?.addRefresh(target: self, action: Selector(("refresh")), text: tableViewConfigurator.refreshTitle)
+      contentTableView?.addRefresh(target: self, action: Selector(("refresh")), text: tableViewConfigurator.refreshTitle)
     }
   
   }
   
   func reloadTableView() {
-    updateTableView { self.tableView?.reloadData() }
+    updateTableView { self.contentTableView?.reloadData() }
   }
   
   func reloadSections(_ sections: [Int], with animation: UITableView.RowAnimation = .automatic) {
-    updateTableView { self.tableView?.reloadSections(IndexSet(sections), with: animation) }
+    updateTableView { self.contentTableView?.reloadSections(IndexSet(sections), with: animation) }
   }
   
   func insertSections(_ sections: [Int], with animation: UITableView.RowAnimation = .automatic) {
-    updateTableView { self.tableView?.insertSections(IndexSet(sections), with: animation) }
+    updateTableView { self.contentTableView?.insertSections(IndexSet(sections), with: animation) }
   }
   
   func deleteSections(_ sections: [Int], with animation: UITableView.RowAnimation = .automatic) {
-    updateTableView { self.tableView?.deleteSections(IndexSet(sections), with: animation) }
+    updateTableView { self.contentTableView?.deleteSections(IndexSet(sections), with: animation) }
   }
   
   func reloadRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .automatic) {
-    updateTableView { self.tableView?.reloadRows(at: indexPaths, with: animation) }
+    updateTableView { self.contentTableView?.reloadRows(at: indexPaths, with: animation) }
   }
   
   func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .automatic) {
-    updateTableView { self.tableView?.insertRows(at: indexPaths, with: animation) }
+    updateTableView { self.contentTableView?.insertRows(at: indexPaths, with: animation) }
   }
   
   func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation = .automatic) {
-    updateTableView { self.tableView?.deleteRows(at: indexPaths, with: animation) }
+    updateTableView { self.contentTableView?.deleteRows(at: indexPaths, with: animation) }
   }
   
   
@@ -74,9 +74,9 @@ public extension NKListViewable {
   
   fileprivate func updateTableView(_ action: UpdateAction? = nil) {
     DispatchQueue.main.async {
-      self.tableView?.beginUpdates()
+      self.contentTableView?.beginUpdates()
       action?()
-      self.tableView?.endUpdates()
+      self.contentTableView?.endUpdates()
     }
   }
   
@@ -88,10 +88,10 @@ public extension NKListViewable {
 //MARK: -
 
 //MARK: - UITableViewDataSource & UITableViewDelegate base implementation
-extension UIViewController: UITableViewDataSource, UITableViewDelegate {
-  fileprivate var tableViewConfigurator: NKListConfigurator? {
-    return nil
-  }
+open class NKViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NKListViewable {
+  
+  open var tableViewConfigurator: NKListConfigurator? { return nil }
+  open var contentTableView: UITableView? { return nil }
   
   
   public func numberOfSections(in tableView: UITableView) -> Int {
