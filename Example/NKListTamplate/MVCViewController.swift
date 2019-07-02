@@ -9,18 +9,36 @@
 import UIKit
 import NKListTamplate
 
-class MVCViewController: UITableViewController, NKListViewable {
+class MVCViewController: NKViewController {
   
-  var tableViewConfigurator: NKListConfigurator? {
+  @IBOutlet weak var tableView: UITableView!
+  
+  override var tableViewConfigurator: NKListConfigurator? {
     return self
   }
   
-  var contentTableView: UITableView? {
+  override var contentTableView: UITableView? {
     return tableView
   }
   
+  var viewModels: [NKAnyViewModel] = [  FirstCellViewModel(),
+                                        SecondCellViewModel(),
+                                        ThirdCellViewModel(),
+                                        FirstCellViewModel(),
+                                        FirstCellViewModel(),
+                                        FirstCellViewModel(),
+                                        SecondCellViewModel(),
+                                        SecondCellViewModel(),
+                                        SecondCellViewModel(),
+                                        ThirdCellViewModel(),
+                                        FirstCellViewModel(),
+                                        SecondCellViewModel(),
+                                        ThirdCellViewModel() ]
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    configurateTableView()
+    tableView.reloadData()
     // Do any additional setup after loading the view, typically from a nib.
   }
   
@@ -33,7 +51,6 @@ class MVCViewController: UITableViewController, NKListViewable {
 }
 
 
-
 extension MVCViewController: NKListConfigurator {
   var viewer: NKListViewable? { return self }
   
@@ -41,35 +58,35 @@ extension MVCViewController: NKListConfigurator {
   
   var refreshTitle: String? { return nil }
   
-  var cellViewModelTypes: [AnyViewModel.Type] {
+  var cellViewModelTypes: [NKAnyViewModel.Type] {
+    return [FirstCellViewModel.self, SecondCellViewModel.self, ThirdCellViewModel.self]
+  }
+  
+  var headerViewModelTypes: [NKAnyViewModel.Type]? {
     return []
   }
   
-  var headerViewModelTypes: [AnyViewModel.Type]? {
-    return []
-  }
-  
-  var footerViewModelTypes: [AnyViewModel.Type]? {
+  var footerViewModelTypes: [NKAnyViewModel.Type]? {
     return []
   }
   
   var numberOfSections: Int {
-    return 0
+    return 1
   }
   
   func numberOfRows(in section: Int) -> Int {
-    return 0
+    return viewModels.count
   }
   
-  func cellViewModel(for indexPath: IndexPath) -> AnyViewModel? {
+  func cellViewModel(for indexPath: IndexPath) -> NKAnyViewModel? {
+    return viewModels[indexPath.row]
+  }
+  
+  func headerViewModel(for section: Int) -> NKAnyViewModel? {
     return nil
   }
   
-  func headerViewModel(for section: Int) -> AnyViewModel? {
-    return nil
-  }
-  
-  func footerViewModel(for section: Int) -> AnyViewModel? {
+  func footerViewModel(for section: Int) -> NKAnyViewModel? {
     return nil
   }
   

@@ -6,4 +6,13 @@
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import NKListTamplate
+
+class SecondCellViewModel: NKViewModel {
+  
+  func setup(view: Cell) {
+    view.lblText?.text = String(describing: type(of: self))
+  }
+}
+
