@@ -10,14 +10,14 @@ import UIKit
 
 public extension UITableView {
   
-  func dequeueReusableCell(with model: AnyViewModel, for indexPath: IndexPath) -> UITableViewCell {
+  func dequeueReusableCell(with model: NKAnyViewModel, for indexPath: IndexPath) -> UITableViewCell {
     let identifier = String(describing: type(of: model).viewAnyType)
     let cell = dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     model.setupAny(view: cell)
     return cell
   }
   
-  func registerCell(nibModels: [AnyViewModel.Type]) {
+  func registerCell(nibModels: [NKAnyViewModel.Type]) {
     nibModels.forEach {
       let identifier = String(describing: $0.viewAnyType)
       let nib = UINib(nibName: identifier, bundle: nil)
@@ -25,7 +25,7 @@ public extension UITableView {
     }
   }
   
-  func dequeueReusableView(with model: AnyViewModel) -> UITableViewHeaderFooterView {
+  func dequeueReusableView(with model: NKAnyViewModel) -> UITableViewHeaderFooterView {
     let identifier = String(describing: type(of: model).viewAnyType)
     guard let view = dequeueReusableHeaderFooterView(withIdentifier: identifier) else {
       return UITableViewHeaderFooterView()
@@ -34,7 +34,7 @@ public extension UITableView {
     return view
   }
   
-  func registerView(nibModels: [AnyViewModel.Type]) {
+  func registerView(nibModels: [NKAnyViewModel.Type]) {
     nibModels.forEach {
       let identifier = String(describing: $0.viewAnyType)
       let nib = UINib(nibName: identifier, bundle: nil)
