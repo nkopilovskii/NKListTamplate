@@ -25,7 +25,7 @@ public protocol NKListConfigurator {
   func headerViewModel(for section: Int) -> NKAnyViewModel?
   func footerViewModel(for section: Int) -> NKAnyViewModel?
   
-  func didSelectItem(at indexPath: Int)
+  func didSelectItem(at indexPath: IndexPath)
   
   func didMakeRefresh()
 }

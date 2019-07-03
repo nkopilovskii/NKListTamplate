@@ -15,6 +15,9 @@ public protocol NKListViewable: class {
   
   func configurateTableView()
   
+  func beginRefresh()
+  func endRefresh()
+  
   func reloadTableView()
   func reloadSections(_ sections: [Int], with animation: UITableView.RowAnimation)
   func insertSections(_ sections: [Int], with animation: UITableView.RowAnimation)
@@ -34,11 +37,17 @@ public extension NKListViewable {
     contentTableView?.registerCell(nibModels: tableViewConfigurator.cellViewModelTypes)
     contentTableView?.registerView(nibModels: tableViewConfigurator.headerViewModelTypes ?? [])
     contentTableView?.registerView(nibModels: tableViewConfigurator.footerViewModelTypes ?? [])
-    
-    if tableViewConfigurator.isRefreshable {
-      contentTableView?.addRefresh(target: self, action: Selector(("refresh")), text: tableViewConfigurator.refreshTitle)
-    }
   
+  }
+  
+  func beginRefresh() {
+    let offsetPoint = CGPoint.init(x: 0, y: -(contentTableView?.refreshControl?.frame.size.height ?? 0))
+    contentTableView?.setContentOffset(offsetPoint, animated: true)
+    contentTableView?.refreshControl?.beginRefreshing()
+  }
+  
+  func endRefresh() {
+    updateTableView { self.contentTableView?.refreshControl?.endRefreshing() }
   }
   
   func reloadTableView() {
@@ -86,25 +95,3 @@ public extension NKListViewable {
 
 
 
-//MARK: - UITableView Refresh Control
-fileprivate extension UITableView {
-  
-  func addRefresh(target: Any?, action: Selector, text: String? = nil) {
-    guard refreshControl == nil else { return }
-    let control = UIRefreshControl()
-    control.addTarget(target, action: action, for: .valueChanged)
-    control.layer.zPosition = -1
-    
-    if let text = text {
-      control.attributedTitle = NSAttributedString(string: text)
-    }
-    
-    refreshControl = control
-  }
-  
-  func deleteRefresh() {
-    refreshControl?.removeFromSuperview()
-    refreshControl = nil
-  }
-}
-//MARK: -
