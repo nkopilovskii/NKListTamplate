@@ -14,6 +14,11 @@ open class NKListViewController: UIViewController, UITableViewDataSource, UITabl
   open var contentTableView: UITableView? { return nil }
   
   
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    configurateTableView()
+  }
+  
   open func numberOfSections(in tableView: UITableView) -> Int {
     return tableViewConfigurator?.numberOfSections ?? 0
   }
