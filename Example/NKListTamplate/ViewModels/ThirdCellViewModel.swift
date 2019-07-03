@@ -11,7 +11,7 @@ import NKListTamplate
 
 class ThirdCellViewModel: NKViewModel {
   
-  func setup(view: Cell) {
+  func setup(view: AnotherCell) {
     view.lblText?.text = String(describing: type(of: self))
   }
 }

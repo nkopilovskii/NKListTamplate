@@ -1,70 +1,77 @@
 //
-//  ViewController.swift
-//  NKListTamplate
+//  MVPViewController.swift
+//  NKListTamplate_Example
 //
-//  Created by Nick Kopilovskii on 06/27/2019.
-//  Copyright (c) 2019 Nick Kopilovskii. All rights reserved.
+//  Created by Nick Kopilovskii on 7/3/19.
+//  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import UIKit
 import NKListTamplate
 
-class MVCViewController: NKListViewController {
+class MVPViewController: NKListViewController {
   
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var tableView: UITableView?
+  
+  lazy var presenter = Presenter(self)
   
   override var tableViewConfigurator: NKListConfigurator? {
-    return self
+    return presenter
   }
   
   override var contentTableView: UITableView? {
     return tableView
   }
+}
+
+
+class Presenter {
+  weak var _viewer: NKListViewable?
   
   var viewModels: [NKAnyViewModel] = [  FirstCellViewModel(),
                                         SecondCellViewModel(),
                                         ThirdCellViewModel(),
+                                        ThirdCellViewModel(),
                                         FirstCellViewModel(),
-                                        FirstCellViewModel(),
-                                        FirstCellViewModel(),
-                                        SecondCellViewModel(),
+                                        ThirdCellViewModel(),
                                         SecondCellViewModel(),
                                         SecondCellViewModel(),
                                         ThirdCellViewModel(),
+                                        ThirdCellViewModel(),
                                         FirstCellViewModel(),
-                                        SecondCellViewModel(),
+                                        ThirdCellViewModel(),
                                         ThirdCellViewModel() ]
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  init(_ viewer: NKListViewable) {
+    _viewer = viewer
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  
 }
 
-
-extension MVCViewController: NKListConfigurator {
-  var viewer: NKListViewable? { return self }
+extension Presenter: NKListConfigurator {
+  var viewer: NKListViewable? {
+    return _viewer
+  }
   
-  var isRefreshable: Bool { return true }
+  var isRefreshable: Bool {
+    return false
+  }
   
-  var refreshTitle: String? { return nil }
+  var refreshTitle: String? {
+    return nil
+  }
   
   var cellViewModelTypes: [NKAnyViewModel.Type] {
-    return [FirstCellViewModel.self, SecondCellViewModel.self, ThirdCellViewModel.self]
+    return [ FirstCellViewModel.self,
+            SecondCellViewModel.self,
+            ThirdCellViewModel.self ]
   }
   
   var headerViewModelTypes: [NKAnyViewModel.Type]? {
-    return []
+    return nil
   }
   
   var footerViewModelTypes: [NKAnyViewModel.Type]? {
-    return []
+    return nil
   }
   
   var numberOfSections: Int {
@@ -88,12 +95,10 @@ extension MVCViewController: NKListConfigurator {
   }
   
   func didSelectItem(at indexPath: Int) {
-    
   }
   
   func didMakeRefresh() {
-    
   }
   
-  
+
 }
