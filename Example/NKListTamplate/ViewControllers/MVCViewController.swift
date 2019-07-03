@@ -87,12 +87,13 @@ extension MVCViewController: NKListConfigurator {
     return nil
   }
   
-  func didSelectItem(at indexPath: Int) {
-    
-  }
+  func didSelectItem(at indexPath: IndexPath) { }
   
   func didMakeRefresh() {
-    
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+      self.viewer?.endRefresh()
+      self.viewer?.reloadTableView()
+    }
   }
   
   

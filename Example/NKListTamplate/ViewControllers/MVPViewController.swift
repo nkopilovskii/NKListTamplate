@@ -25,8 +25,8 @@ class MVPViewController: NKListViewController {
 }
 
 
-class Presenter {
-  weak var _viewer: NKListViewable?
+class Presenter: NKListConfigurator {
+  weak var viewer: NKListViewable?
   
   var viewModels: [NKAnyViewModel] = [  FirstCellViewModel(),
                                         SecondCellViewModel(),
@@ -43,22 +43,12 @@ class Presenter {
                                         ThirdCellViewModel() ]
   
   init(_ viewer: NKListViewable) {
-    _viewer = viewer
-  }
-}
-
-extension Presenter: NKListConfigurator {
-  var viewer: NKListViewable? {
-    return _viewer
+    self.viewer = viewer
   }
   
-  var isRefreshable: Bool {
-    return false
-  }
+  var isRefreshable = true
   
-  var refreshTitle: String? {
-    return nil
-  }
+  var refreshTitle: String? = nil
   
   var cellViewModelTypes: [NKAnyViewModel.Type] {
     return [ FirstCellViewModel.self,
@@ -94,10 +84,15 @@ extension Presenter: NKListConfigurator {
     return nil
   }
   
-  func didSelectItem(at indexPath: Int) {
+  func didSelectItem(at indexPath: IndexPath) {
+    self.viewer?.beginRefresh()
   }
   
   func didMakeRefresh() {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+      self.viewer?.endRefresh()
+      self.viewer?.reloadTableView()
+    }
   }
   
 
