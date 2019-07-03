@@ -80,46 +80,10 @@ public extension NKListViewable {
     }
   }
   
-  
-  
 }
 //MARK: -
 
-//MARK: - UITableViewDataSource & UITableViewDelegate base implementation
-open class NKViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NKListViewable {
-  
-  open var tableViewConfigurator: NKListConfigurator? { return nil }
-  open var contentTableView: UITableView? { return nil }
-  
-  
-  public func numberOfSections(in tableView: UITableView) -> Int {
-    return tableViewConfigurator?.numberOfSections ?? 0
-  }
-  
-  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return tableViewConfigurator?.numberOfRows(in: section) ?? 0
-  }
-  
-  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let viewModel = tableViewConfigurator?.cellViewModel(for: indexPath) else { return UITableViewCell() }
-    return tableView.dequeueReusableCell(with: viewModel, for: indexPath)
-  }
-  
-  public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    guard let viewModel = tableViewConfigurator?.headerViewModel(for: section) else { return nil }
-    return tableView.dequeueReusableView(with: viewModel)
-  }
-  
-  public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    guard let viewModel = tableViewConfigurator?.footerViewModel(for: section) else { return nil }
-    return tableView.dequeueReusableView(with: viewModel)
-  }
-  
-  private func refresh() {
-    tableViewConfigurator?.didMakeRefresh()
-  }
-}
-//MARK: -
+
 
 
 //MARK: - UITableView Refresh Control
