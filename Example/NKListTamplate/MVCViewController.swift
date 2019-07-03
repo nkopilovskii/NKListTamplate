@@ -9,7 +9,7 @@
 import UIKit
 import NKListTamplate
 
-class MVCViewController: NKViewController {
+class MVCViewController: NKListViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -37,9 +37,6 @@ class MVCViewController: NKViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configurateTableView()
-    tableView.reloadData()
-    // Do any additional setup after loading the view, typically from a nib.
   }
   
   override func didReceiveMemoryWarning() {
