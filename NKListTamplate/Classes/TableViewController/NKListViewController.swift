@@ -17,6 +17,12 @@ open class NKListViewController: UIViewController, UITableViewDataSource, UITabl
   open override func viewDidLoad() {
     super.viewDidLoad()
     configurateTableView()
+    
+    if let isRefreshable = tableViewConfigurator?.isRefreshable, isRefreshable {
+      contentTableView?.addRefresh(target: self, action: #selector(refresh), text: tableViewConfigurator?.refreshTitle)
+    } else {
+      contentTableView?.deleteRefresh()
+    }
   }
   
   open func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,8 +48,37 @@ open class NKListViewController: UIViewController, UITableViewDataSource, UITabl
     return tableView.dequeueReusableView(with: viewModel)
   }
   
-  open func refresh() {
+  open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableViewConfigurator?.didSelectItem(at: indexPath)
+  }
+  
+  @objc open func refresh() {
     tableViewConfigurator?.didMakeRefresh()
   }
+}
+//MARK: -
+
+
+//MARK: - UITableView Refresh Control
+extension UITableView {
+  
+  func addRefresh(target: Any?, action: Selector, text: String? = nil) {
+    guard refreshControl == nil else { return }
+    let control = UIRefreshControl()
+    control.addTarget(target, action: action, for: .valueChanged)
+    control.layer.zPosition = -1
+    
+    if let text = text {
+      control.attributedTitle = NSAttributedString(string: text)
+    }
+    
+    refreshControl = control
+  }
+  
+  func deleteRefresh() {
+    refreshControl?.removeFromSuperview()
+    refreshControl = nil
+  }
+  
 }
 //MARK: -
