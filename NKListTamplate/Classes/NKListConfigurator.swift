@@ -30,6 +30,7 @@
 import Foundation
 import NKAnyViewModel
 
+//MARK: - NKListConfigurator
 public protocol NKListConfigurator {
   
   var viewer: NKListViewable? { get }

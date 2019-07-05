@@ -30,6 +30,7 @@
 import UIKit
 import NKAnyViewModel
 
+//MARK: - UITableView. NKAnyViewModel
 public extension UITableView {
   
   func dequeueReusableCell(with model: NKAnyViewModel, for indexPath: IndexPath) -> UITableViewCell {
@@ -66,3 +67,27 @@ public extension UITableView {
   
 }
 
+
+//MARK: - UITableView Refresh Control
+public extension UITableView {
+  
+  func addRefresh(target: Any?, action: Selector, text: String? = nil) {
+    guard refreshControl == nil else { return }
+    let control = UIRefreshControl()
+    control.addTarget(target, action: action, for: .valueChanged)
+    control.layer.zPosition = -1
+    
+    if let text = text {
+      control.attributedTitle = NSAttributedString(string: text)
+    }
+    
+    refreshControl = control
+  }
+  
+  func deleteRefresh() {
+    refreshControl?.removeFromSuperview()
+    refreshControl = nil
+  }
+  
+}
+//MARK: -

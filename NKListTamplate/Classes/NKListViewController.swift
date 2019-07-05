@@ -81,26 +81,3 @@ open class NKListViewController: UIViewController, UITableViewDataSource, UITabl
 //MARK: -
 
 
-//MARK: - UITableView Refresh Control
-extension UITableView {
-  
-  func addRefresh(target: Any?, action: Selector, text: String? = nil) {
-    guard refreshControl == nil else { return }
-    let control = UIRefreshControl()
-    control.addTarget(target, action: action, for: .valueChanged)
-    control.layer.zPosition = -1
-    
-    if let text = text {
-      control.attributedTitle = NSAttributedString(string: text)
-    }
-    
-    refreshControl = control
-  }
-  
-  func deleteRefresh() {
-    refreshControl?.removeFromSuperview()
-    refreshControl = nil
-  }
-  
-}
-//MARK: -
