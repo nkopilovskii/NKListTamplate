@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NKAnyViewModel
 
 //MARK: - NKListViewable protocol
 public protocol NKListViewable: class {

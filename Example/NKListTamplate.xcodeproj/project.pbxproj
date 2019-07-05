@@ -317,21 +317,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NKListTamplate_Example/Pods-NKListTamplate_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NKListTamplate_Example/Pods-NKListTamplate_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NKAnyViewModel/NKAnyViewModel.framework",
 				"${BUILT_PRODUCTS_DIR}/NKListTamplate/NKListTamplate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NKAnyViewModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NKListTamplate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NKListTamplate_Example/Pods-NKListTamplate_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NKListTamplate_Example/Pods-NKListTamplate_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		32F3DCBD31F0E5802E9BD425 /* [CP] Check Pods Manifest.lock */ = {

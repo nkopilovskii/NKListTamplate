@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NKAnyViewModel
 
 public protocol NKListConfigurator {
   

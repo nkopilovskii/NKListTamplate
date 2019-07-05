@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NKAnyViewModel
 import NKListTamplate
 
 class MVPViewController: NKListViewController {

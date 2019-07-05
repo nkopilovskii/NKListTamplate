@@ -26,7 +26,7 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Nick Kopilovskii' => 'nkopilovskii@gmail.com' }
   s.source           = { :git => 'https://github.com/nkopilovskii/NKListTamplate.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/mkopilovskii'
+  s.social_media_url = 'https://twitter.com/mkopilovskii'
 
   s.ios.deployment_target = '10.0'
 
@@ -38,5 +38,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-#   s.dependency 'NKAnyViewModel'
+   s.dependency 'NKAnyViewModel', '~> 0.1.0.1'
 end

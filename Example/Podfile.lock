@@ -1,16 +1,23 @@
 PODS:
-  - NKListTamplate (0.1.0)
+  - NKAnyViewModel (0.1.0.1)
+  - NKListTamplate (0.1.0):
+    - NKAnyViewModel (~> 0.1.0.1)
 
 DEPENDENCIES:
   - NKListTamplate (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - NKAnyViewModel
 
 EXTERNAL SOURCES:
   NKListTamplate:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NKListTamplate: e7b70e6542198edf03f170db464619b63a8cbdd1
+  NKAnyViewModel: 5c54426df9bc59178954907a811eca0f33cad211
+  NKListTamplate: 62f1bfbc017b51e0fda241a03034224db60a2abe
 
-PODFILE CHECKSUM: 1b1bc8efb8d4b929503b6b60181f82ba24477a5d
+PODFILE CHECKSUM: de328dcf065ffe59b8d0427b44fc5150eff17c29
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.3

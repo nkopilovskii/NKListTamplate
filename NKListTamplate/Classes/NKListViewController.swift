@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NKAnyViewModel
 
 //MARK: - NKListViewController class
 open class NKListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NKListViewable {

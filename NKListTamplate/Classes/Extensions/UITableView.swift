@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NKAnyViewModel
 
 public extension UITableView {
   

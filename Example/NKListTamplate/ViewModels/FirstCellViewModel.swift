@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import NKListTamplate
+import NKAnyViewModel
 
 class FirstCellViewModel: NKViewModel {
   
