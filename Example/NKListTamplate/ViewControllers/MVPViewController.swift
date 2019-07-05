@@ -10,6 +10,8 @@ import UIKit
 import NKAnyViewModel
 import NKListTamplate
 
+
+//MARK: - MVPViewController
 class MVPViewController: NKListViewController {
   
   @IBOutlet weak var tableView: UITableView?
@@ -24,8 +26,9 @@ class MVPViewController: NKListViewController {
     return tableView
   }
 }
+//MARK: -
 
-
+//MARK: - Presenter
 class Presenter: NKListConfigurator {
   weak var viewer: NKListViewable?
   
@@ -98,3 +101,4 @@ class Presenter: NKListConfigurator {
   
 
 }
+//MARK: - 
