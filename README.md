@@ -1,6 +1,6 @@
 # NKListTamplate
 
-[![CI Status](https://img.shields.io/travis/Nick Kopilovskii/NKListTamplate.svg?style=flat)](https://travis-ci.org/Nick Kopilovskii/NKListTamplate)
+[![CI Status](https://img.shields.io/travis/nkopilovskii/NKListTamplate.svg?style=flat)](https://travis-ci.org/nkopilovskii/NKListTamplate)
 [![Version](https://img.shields.io/cocoapods/v/NKListTamplate.svg?style=flat)](https://cocoapods.org/pods/NKListTamplate)
 [![License](https://img.shields.io/cocoapods/l/NKListTamplate.svg?style=flat)](https://cocoapods.org/pods/NKListTamplate)
 [![Platform](https://img.shields.io/cocoapods/p/NKListTamplate.svg?style=flat)](https://cocoapods.org/pods/NKListTamplate)
