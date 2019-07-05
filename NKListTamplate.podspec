@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NKListTamplate'
-  s.version          = '0.1.0'
+  s.version          = '0.1.0.1'
   s.summary          = 'Tool for quick and compact UITableView configuration.'
   s.description      = <<-DESC
   The solution is a template with the implementation of the basic methods of configuration and table management; uses the configuration mechanism of individual views NKAnyViewModel.
